@@ -290,24 +290,22 @@
       width: 100%;
     }
 
-    .brand-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.55rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: var(--bg);
-      font-size: 0.78rem;
-      color: var(--muted);
-      transition: var(--transition-theme);
+    .brand-logo {
+      width: 180px;
+      height: auto;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+      /* In light mode the white logo needs a dark tint so it stays visible */
+      filter: none;
     }
 
-    .brand-badge .guitar-icon { font-size: 1rem; }
+    [data-theme="light"] .brand-logo {
+      filter: invert(1);   /* white → black on light backgrounds */
+      opacity: 0.7;
+    }
 
-    .brand-badge strong {
-      color: var(--accent);
-      font-weight: 600;
+    .brand-logo:hover {
+      opacity: 1;
     }
 
     /* ── Footer ── */
@@ -376,12 +374,7 @@
     <div class="divider anim anim-6"></div>
 
     <div class="brand anim anim-7">
-      <div class="brand-badge">
-        <!-- To use the real logo: replace the guitar-icon span with <img src="your-logo.png" height="20" alt="AgeOld Guitars"> -->
-        <span class="guitar-icon">🎸</span>
-        <strong>AgeOld Guitars</strong>
-        <span>&mdash; where tone lives</span>
-      </div>
+      <img class="brand-logo" src="ageold-logo.png" alt="AgeOld Guitars — Handcrafted in Oklahoma City" />
     </div>
 
   </div>
